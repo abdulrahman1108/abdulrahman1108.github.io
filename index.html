@@ -1,0 +1,99 @@
+
+<html lang="en">
+<head>
+ 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+ 
+ 
+
+<script>
+function addDigit(dig) {
+    document.getElementById("result").value += dig.value;
+    console.log(dig.value);
+}
+ var tempNum=0;
+ var tempOper=''
+ function doCalc(oper){
+     var res =document.getElementById("result")
+    if (oper.value == "C") {
+        res.value = "";
+    }
+    //all operations (-+*/)
+if (oper.value == "+" ||
+    oper.value == "-" ||
+    oper.value == "*" ||
+    oper.value == "/"
+    ) {
+        
+   tempNum = res.value;
+   res.value = "";
+   tempOper = oper.value;
+}
+//equal operation...
+if (oper.value == "=") {
+    if(tempOper == "+") {
+ res.value =parseInt(tempNum) +parseInt( res.value);
+ }
+ if(tempOper == "-") {
+ res.value =parseInt(tempNum) -parseInt( res.value);
+ }
+ if(tempOper == "*") {
+ res.value =parseInt(tempNum) * parseInt( res.value);
+ }
+ if(tempOper == "/") {
+ res.value =parseInt(tempNum) /parseInt( res.value);
+ }
+}
+ }
+ 
+ 
+
+</script>
+
+</head>
+<body>
+
+    <input id="result" />
+    <table>
+        <tr>
+            <td><input type="button" value="7" onclick="addDigit(this)"></td>
+            <td><input type="button" value="8" onclick="addDigit(this)"></td>
+            <td><input type="button" value="9" onclick="addDigit(this)"></td>
+            <td><input type="button" value="-" onclick="doCalc(this)"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" onclick="addDigit(this)"></td>
+            <td><input type="button" value="5" onclick="addDigit(this)"></td>
+            <td><input type="button" value="6" onclick="addDigit(this)"></td>
+            <td><input type="button" value="+" onclick="doCalc(this)"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="1" onclick="addDigit(this)"></td>
+            <td><input type="button" value="2" onclick="addDigit(this)"></td>
+            <td><input type="button" value="3" onclick="addDigit(this)"></td>
+            <td><input type="button" value="*" onclick="doCalc(this)"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="/" onclick="doCalc(this)"></td>
+            <td><input type="button" value="0" onclick="addDigit(this)"></td>
+            <td><input type="button" value="="onclick="doCalc(this)"></td>
+            <td><input type="button" value="C" onclick="doCalc(this)"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value=""></td>
+            <td><input type="button" value=""></td>
+            <td><input type="button" value=""></td>
+            <td><input type="button" value=""></td>
+        </tr>
+    </table>
+    
+<h1>🦩</h1>
+
+
+
+
+
+</body>
+</html>
